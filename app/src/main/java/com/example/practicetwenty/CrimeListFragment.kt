@@ -1,5 +1,7 @@
 package com.example.practicetwenty
 
+
+
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,8 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 
 private const val TAG = "CrimeListFragment"
 
@@ -43,5 +44,26 @@ class CrimeListFragment: Fragment() {
         adapter = CrimeAdapter(crimes)
         crimeRecyclerView.adapter = adapter
 
+    }
+
+    private inner class CrimeAdapter(var crimes: List<Crime>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        override fun getItemViewType(position: Int): Int {
+            if (crimes[position].requiresPolice == 1) {
+                return 1
+            }
+            return 0
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+            TODO("Not yet implemented")
+        }
+
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            TODO("Not yet implemented")
+        }
+
+        override fun getItemCount(): Int {
+            TODO("Not yet implemented")
+        }
     }
 }
